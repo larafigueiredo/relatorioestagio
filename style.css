@@ -1,6 +1,4 @@
-/**
- * Typography & Text styles
- */
+/* Typography & Text styles */
 
 
 /* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px */
@@ -15,13 +13,13 @@ body {
     line-height: 1.6;
     font-weight: 400;
     font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #FFFFFF;
+    color: #333333;
+    margin: 0;
+    padding: 0;
 }
 
 
-/**
- * Links
- */
+/* Links */
 
 a {
     font-weight: normal;
@@ -38,9 +36,7 @@ small {
 }
 
 
-/**
- * Headings
- */
+/* Headings */
 
 h1,
 h2,
@@ -93,9 +89,7 @@ h6 {
 }
 
 
-/**
- * Paragraphs
- */
+/* Paragraphs */
 
 p {
     margin: 0 auto 1.5em auto;
@@ -105,9 +99,7 @@ p {
 p+p {}
 
 
-/**
- * Quotes & Blockquotes
- */
+/* Quotes & Blockquotes */
 
 q {
     quotes: '\00201C' '\00201D';
@@ -134,9 +126,7 @@ blockquote p:last-child {
 }
 
 
-/**
- * Layout styles
- */
+/* Layout styles */
 
 
 /* Full size background image */
@@ -153,22 +143,29 @@ html {
 }
 
 body {
-    max-width: 800px;
-    margin: 25px auto;
+    margin: 0;
+    padding: 0;
 }
 
-header,
-#content,
-footer {
+header {
     background: rgba(0, 0, 0, .8);
     padding: 25px;
     color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+#header img {
+    width: 100px;
+}
 
-/* Menu Links */
+#header h1 {
+    font-size: 2.4rem;
+    margin: 0;
+}
 
-ul.main-menu {
+.main-menu {
     margin: 0;
     padding: 0;
     display: flex;
@@ -177,29 +174,35 @@ ul.main-menu {
     list-style: none;
 }
 
-ul.main-menu li a {
+.main-menu li {
     margin-right: 20px;
-    font-size: 2.0rem;
+}
+
+.main-menu a {
+    font-size: 1.8rem;
     border-bottom: solid transparent 3px;
     color: #cfd2da;
+    text-decoration: none;
+    transition: border-color .3s ease, color .3s ease;
 }
 
-ul.main-menu li a:hover {
+.main-menu a:hover {
+    border-color: #cfd2da;
     color: #FFFFFF;
 }
 
-ul.main-menu li a.active {
-    color: #FFFFFF;
-    border-bottom-color: #EF6D3D;
+.content-region {
+    margin-top: 30px;
 }
 
-
-/* Utility classes */
+footer {
+    background: rgba(0, 0, 0, .8);
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.6rem;
+}
 
 .hide {
     display: none;
-}
-
-.show {
-    display: block;
 }

@@ -17,7 +17,68 @@
 
     <!-- Custom styles -->
     <link href="style.css" rel="stylesheet" type="text/css" />
-
+    <style>
+        /* New styles for a modern look */
+        /* Set a modern font */
+        
+        body {
+            font-family: "Roboto", sans-serif;
+        }
+        /* Header styles */
+        
+        header {
+            background: #333;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        header img {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+        /* Menu styles */
+        
+        .main-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .main-menu li {
+            margin-right: 20px;
+        }
+        
+        .main-menu li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .main-menu li a:hover {
+            color: #EF6D3D;
+        }
+        /* Content styles */
+        
+        .content-region {
+            margin-top: 30px;
+        }
+        /* Footer styles */
+        
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -29,16 +90,16 @@
 <body>
 
     <header id="header">
-        <img src="logo.png">
+        <img src="logo.png" alt="Logo">
         <h1>Estágio Curricular ITSector</h1>
-
-        <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-        <ul class="main-menu">
-            <li><a href="#home">Início</a></li>
-            <li><a href="#about">Trabalho desenvolvido</a></li>
-            <li><a href="#contact">Contatos</a></li>
-            <li><a href="#contact">Documentos</a></li>
-        </ul>
+        <nav>
+            <ul class="main-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Trabalho desenvolvido</a></li>
+                <li><a href="#contact">Contatos</a></li>
+                <li><a href="#documents">Documentos</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div id="container">
@@ -66,6 +127,13 @@
                     </p>
                 </div>
 
+                <div id="documents" class="content-region hide">
+                    <h2>Documents</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus metus id ligula efficitur commodo.
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
@@ -76,6 +144,37 @@
 
     <!-- Load additional JS scripts here -->
     <script type="text/javascript" src="script.js"></script>
+    <script>
+        // Wait for the document to load before running the script 
+        (function($) {
+
+            // We use some Javascript and the URL #fragment to hide/show different parts of the page
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Linking_to_an_element_on_the_same_page
+            $(window).on('load hashchange', function() {
+
+                // First hide all content regions, then show the content-region specified in the URL hash 
+                // (or if no hash URL is found, default to first menu item)
+                $('.content-region').hide();
+
+                // Remove any active classes on the main-menu
+                $('.main-menu a').removeClass('active');
+                var region = location.hash.toString() || $('.main-menu a:first').attr('href');
+
+                // Now show the region specified in the URL hash
+                $(region).show();
+
+                // Highlight the menu link associated with this region by adding the .active CSS class
+                $('.main-menu a[href="' + region + '"]').addClass('active');
+
+                // Alternate method: Use AJAX to load the contents of an external file into a div based on URL fragment
+                // This will extract the region name from URL hash, and then load [region].html into the main #content div
+                // var region = location.hash.toString() || '#first';
+                // $('#content').load(region.slice(1) + '.html')
+
+            });
+
+        })(jQuery);
+    </script>
 
 </body>
 
