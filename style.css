@@ -1,25 +1,15 @@
-/* Typography & Text styles */
-
-
-/* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px */
-
 html {
     font-size: 62.5%;
 }
 
 body {
     font-size: 1.5em;
-    /* currently ems cause chrome bug misinterpreting rems on body element */
     line-height: 1.6;
     font-weight: 400;
     font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333333;
-    margin: 0;
-    padding: 0;
+    color: #000000;
+    /* Alterado para preto para melhorar a visibilidade */
 }
-
-
-/* Links */
 
 a {
     font-weight: normal;
@@ -35,9 +25,6 @@ small {
     font-size: 75%;
 }
 
-
-/* Headings */
-
 h1,
 h2,
 h3,
@@ -46,7 +33,6 @@ h5,
 h6 {
     line-height: 1;
     text-rendering: optimizeLegibility;
-    /*  voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 300;
@@ -88,18 +74,11 @@ h6 {
     letter-spacing: 0;
 }
 
-
-/* Paragraphs */
-
 p {
     margin: 0 auto 1.5em auto;
-    /* bottom margin for paragraphs */
 }
 
 p+p {}
-
-
-/* Quotes & Blockquotes */
 
 q {
     quotes: '\00201C' '\00201D';
@@ -114,7 +93,6 @@ q:after {
 }
 
 blockquote {
-    /*background-color: #F8F8F8;*/
     border-left: 2px solid #AFC0D2;
     margin: 1.6em 10%;
     padding: .75em 1em;
@@ -124,12 +102,6 @@ blockquote {
 blockquote p:last-child {
     margin-bottom: 0;
 }
-
-
-/* Layout styles */
-
-
-/* Full size background image */
 
 html,
 #container,
@@ -143,8 +115,8 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    max-width: 800px;
+    margin: 25px auto;
 }
 
 header {
@@ -152,8 +124,10 @@ header {
     padding: 25px;
     color: #FFFFFF;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
 }
 
 #header img {
@@ -163,6 +137,7 @@ header {
 #header h1 {
     font-size: 2.4rem;
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .main-menu {
@@ -182,8 +157,6 @@ header {
     font-size: 1.8rem;
     border-bottom: solid transparent 3px;
     color: #cfd2da;
-    text-decoration: none;
-    transition: border-color .3s ease, color .3s ease;
 }
 
 .main-menu a:hover {
